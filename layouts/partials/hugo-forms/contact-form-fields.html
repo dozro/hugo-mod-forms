@@ -60,5 +60,8 @@
                 name="attachment" 
                 accept=".jpg,.jpeg,.png,.pdf,.docx"/>
         </div>
+        <input type="hidden" id="hugo-contact-form-build-time" name="hugoContactFormTimestamp" value="{{ now.Format "2006-01-02 15:04:05 MST" }}" />
+        <input type="hidden" id="hugo-contact-form-page-url" name="hugoContactFormPageURL" value="{{ .Page.Permalink }}" />
+        {{ partial "hugo-forms/pow.html" . }}
     </fieldset>
 </div>

@@ -1,0 +1,9 @@
+{{ partial "hugo-forms/script-include.html" . }}
+<input type="hidden" id="hugo-form-proof-of-work" name="hugoFormProofOfWork" required />
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const formElement = document.getElementById("hugo-form-proof-of-work");
+        const submitButton = formElement.closest("form").querySelector('button[type="submit"]');
+        doProofOfWork("hugo-form-proof-of-work", submitButton.id);
+    });
+</script>

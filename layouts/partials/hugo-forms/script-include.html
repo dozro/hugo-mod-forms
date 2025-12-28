@@ -1,0 +1,10 @@
+<!-- beginning of script include for hugo forms – github.com/dozro/hugo-mod-forms -->
+<!-- Copyright 2025 by Rye (itsrye.dev) -->
+{{ with resources.Get "hugo-forms/script/form-pow.js" }}
+{{ with . | fingerprint }}
+{{ with resources.Copy "mods/rye-hugo-forms/js/pow.js" . | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end }}
+{{ end }}
+{{ end }}
+<!-- end of script include for hugo forms -->

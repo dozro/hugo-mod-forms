@@ -1,0 +1,15 @@
+<!-- Contact form shortcode for hugo forms – github.com/dozro/hugo-mod-forms -->
+<!-- Copyright 2025 by Rye (itsrye.dev) -->
+
+{{ $formID := .Get "id" | default (printf "hugo-contact-form-%d" (now.UnixNano)) }}
+{{ $formClass := .Get "class" | default "" }}
+{{ $formAction := .Get "action" | default "" }}
+{{ $formMethod := .Get "method" | default "POST" }}
+
+{{ partial "hugo-forms/style-include.html" . }}
+
+<div class="hugo-contact-form-wrapper hugo-form-wrapper hugo-form"> 
+    <form id="{{ $formID }}" class="{{ $formClass }} hugo-contact-form" action="{{ $formAction }}" method="{{ $formMethod }}">
+    {{ partial "hugo-forms/contact-form-fields.html" . }}
+    </form>
+</div>

@@ -1,0 +1,44 @@
+<!-- beginning of style include for hugo forms – github.com/dozro/hugo-mod-forms -->
+<!-- Copyright 2025 by Rye (itsrye.dev) -->
+
+{{ with resources.Get "hugo-forms/style/main.scss" }}
+{{ $opts := dict
+    "enableSourceMap" hugo.IsDevelopment
+    "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+    "targetPath" "mods/rye-hugo-forms/css/main.css"
+    "transpiler" "libsass"
+    "vars" site.Params.styles
+    "includePaths" (slice "assets/hugo-forms/style/")
+  }}
+{{ with . | toCSS $opts }}
+{{ if hugo.IsDevelopment }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ else }}
+{{ with . | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{ with resources.Get "hugo-forms/style/ContactForm.scss" }}
+{{ $opts := dict
+    "enableSourceMap" hugo.IsDevelopment
+    "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+    "targetPath" "mods/rye-hugo-forms/css/ContactForm.css"
+    "transpiler" "libsass"
+    "vars" site.Params.styles
+    "includePaths" (slice "assets/hugo-forms/style/")
+  }}
+{{ with . | toCSS $opts }}
+{{ if hugo.IsDevelopment }}
+<link rel="stylesheet" href="{{ .RelPermalink }}">
+{{ else }}
+{{ with . | fingerprint }}
+<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+
+<!-- end of style include for hugo forms -->

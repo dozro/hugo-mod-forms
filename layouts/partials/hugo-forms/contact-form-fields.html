@@ -1,0 +1,10 @@
+<!-- Contact Form fields -->
+<label for="firstName">{{ T "HugoForm_Contact_FistName" }}:</label>
+<input type="text" id="firstName" name="firstName" required autocomplete="given-name"/>
+<label for="lastName">{{ T "HugoForm_Contact_LastName" }}:</label>
+<input type="text" id="lastName" name="lastName" autocomplete="family-name"/>
+<label for="email">{{ T "HugoForm_Contact_Email" }}:</label>
+<input type="email" id="email" name="email" required />
+<label for="message">{{ T "HugoForm_Contact_Message" }}:</label>
+<textarea id="message" name="message" rows="5" required></textarea>
+<button type="submit">{{ T "HugoForm_Contact_Submit" }}</button>

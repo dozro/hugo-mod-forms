@@ -10,6 +10,15 @@
     margin: 0 auto;
     padding: 2rem;
     background: $bg;
+
+    @media(prefers-color-scheme: light) {
+        background: $bg;
+    }
+
+    @media(prefers-color-scheme: dark) {
+        background: $bg-dark-mode;
+    }
+
     border-radius: $radius;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 
@@ -17,6 +26,14 @@
         font-size: 0.875rem;
         font-weight: 500;
         color: $muted;
+
+        @media(prefers-color-scheme: light) {
+            color: $muted;
+        }
+
+        @media(prefers-color-scheme: dark) {
+            color: $muted-dark-mode;
+        }
     }
 
     input,
@@ -34,14 +51,41 @@
             outline: none;
             border-color: $primary;
             box-shadow: 0 0 0 3px rgba($primary, 0.15);
+
+            @media(prefers-color-scheme: light) {
+                border-color: $primary;
+                box-shadow: 0 0 0 3px rgba($primary, 0.15);
+            }
+
+            @media(prefers-color-scheme: dark) {
+                border-color: $primary-dark-mode;
+                box-shadow: 0 0 0 3px rgba($primary-dark-mode, 0.15);
+            }
         }
 
         &::placeholder {
             color: lighten($muted, 15%);
+
+            @media(prefers-color-scheme: light) {
+                background: lighten($muted, 15%);
+            }
+
+            @media(prefers-color-scheme: dark) {
+                background: darken($muted-dark-mode, 15%);
+            }
         }
 
         &:disabled {
-            background: #f9fafb;
+            background: $disabled-bg;
+
+            @media(prefers-color-scheme: light) {
+                background: $disabled-bg;
+            }
+
+            @media(prefers-color-scheme: dark) {
+                background: $disabled-bg-dark-mode;
+            }
+
             cursor: not-allowed;
         }
     }
@@ -63,11 +107,29 @@
         background: $primary;
         border: none;
         border-radius: $radius;
+
+        @media(prefers-color-scheme: light) {
+            background: $primary;
+        }
+
+        @media(prefers-color-scheme: dark) {
+            background: $primary-dark-mode;
+        }
+
         cursor: pointer;
-        transition: background $transition, transform $transition;
+        transition: background $transition,
+        transform $transition;
 
         &:hover {
             background: $primary-hover;
+
+            @media(prefers-color-scheme: light) {
+                background: $primary-hover;
+            }
+
+            @media(prefers-color-scheme: dark) {
+                background: $primary-hover-dark-mode;
+            }
         }
 
         &:active {
@@ -87,17 +149,41 @@
 
         input {
             accent-color: $primary;
+
+            @media(prefers-color-scheme: light) {
+                background: $primary;
+            }
+
+            @media(prefers-color-scheme: dark) {
+                background: $primary-dark-mode;
+            }
         }
 
         label {
             font-size: 0.9rem;
             color: $text;
+
+            @media(prefers-color-scheme: light) {
+                background: $text
+            }
+
+            @media(prefers-color-scheme: dark) {
+                background: $text-dark-mode;
+            }
         }
     }
 
     .form-error {
         font-size: 0.8rem;
         color: $error;
+
+        @media(prefers-color-scheme: light) {
+            background: $error;
+        }
+
+        @media(prefers-color-scheme: dark) {
+            background: $error-dark-mode;
+        }
     }
 
     .form-row {

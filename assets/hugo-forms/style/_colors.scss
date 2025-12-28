@@ -1,8 +1,17 @@
 // colors
-$primary: #6366f1; // indigo
+$primary: #6366f1;
+$primary-dark-mode: #818cf8;
 $primary-hover: darken($primary, 6%);
+$primary-hover-dark-mode: darken($primary-dark-mode, 6%);
 $bg: #ffffff;
+$bg-dark-mode: #1f2937;
 $border: #e5e7eb;
+$border-dark-mode: #374151;
 $text: #111827;
+$text-dark-mode: #d1d5db;
 $muted: #6b7280;
+$muted-dark-mode: #9ca3af;
 $error: #ef4444;
+$error-dark-mode: #fca5a5;
+$disabled-bg: #f9fafb;
+$disabled-bg-dark-mode: #374151;

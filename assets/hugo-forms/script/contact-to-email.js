@@ -35,19 +35,20 @@ function sendFormData(targetEmail) {
             const img = document.createElement("img");
             img.src = base64Data;
             img.style.maxWidth = "300px";
-            img.alt = file.name;
+            img.alt = attachment.name;
             output.appendChild(img);
         } else {
             const link = document.createElement("a");
             link.href = base64Data;
-            link.download = file.name;
-            link.textContent = `Download ${file.name}`;
+            link.download = attachment.name;
+            link.textContent = `Download ${attachment.name}`;
             link.style.display = "inline-block";
             link.style.marginTop = "10px";
 
             output.appendChild(link);
         }
     };
+
     reader.readAsDataURL(attachment);
 
     emailBody += "\n\n" + output.innerHTML;

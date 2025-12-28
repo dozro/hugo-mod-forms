@@ -5,5 +5,9 @@
 @import 'colors';
 
 .hugo-contact-form-wrapper{
-    
+    fieldset{
+        border: none;
+        margin: 0;
+        padding: 0;
+    }
 }

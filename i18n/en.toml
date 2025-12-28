@@ -1,4 +1,6 @@
+HugoForm_Contact_PersonalInfo = "your contact information"
 HugoForm_Contact_FistName = "given name"
-HugoForm_Contact_FamilyName = "family name"
+HugoForm_Contact_LastName = "family name"
+HugoForm_Contact_Email = "email"
 HugoForm_Contact_Message = "message"
 HugoForm_Contact_Submit = "submit"

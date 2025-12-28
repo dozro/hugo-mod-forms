@@ -1,60 +1,50 @@
 // Contact to Email JavaScript
-// This script captures form submissions and sends the data to a specified email address.
 // Copyright 2025 by Rye (itsrye.dev)
 
-var formElement;
+let formElement;
 
-function initializeContactForm(formId, targetEmail, emailIsObfuscated) {
+function initializeContactForm(formId, targetEmail) {
     formElement = document.getElementById(formId);
 
-    formElement.addEventListener('submit', function (event) {
+    if (!formElement) {
+        console.error("Form not found:", formId);
+        return;
+    }
+
+    formElement.addEventListener("submit", function (event) {
         event.preventDefault();
         sendFormData(targetEmail);
     });
 }
 
 function sendFormData(targetEmail) {
-    var formData = new FormData(formElement);
-    var emailBody = '';
-    const subject = formData.get('subject') || 'Contact Form Submission';
-    const attachment = formData.get('attachment');
-    const output = document.createElement("div");
+    const formData = new FormData(formElement);
+    let emailBody = "";
+    const subject = formData.get("subject") || "Contact Form Submission";
+    const attachment = formData.get("attachment");
 
-    formData.forEach(function (value, key) {
-        emailBody += "<strong>" + key + "</strong>: " + value + "\n";
+    formData.forEach((value, key) => {
+        if (value instanceof File) return; // skip file here
+        emailBody += `${key}: ${value}\n`;
     });
 
     if (attachment && attachment.size > 0) {
-        emailBody += "Attachment included: " + attachment.name + "\n\n";
+        alert("The mailto protocol does not support attachments. Please attach the file manually in your email client.");
+        openMailClient(targetEmail, subject, emailBody);
+    } else {
+        openMailClient(targetEmail, subject, emailBody);
     }
+}
 
-    const reader = new FileReader();
-    reader.onload = function () {
-        const base64Data = reader.result;
-        if (attachment.type.startsWith("image/")) {
-            const img = document.createElement("img");
-            img.src = base64Data;
-            img.style.maxWidth = "300px";
-            img.alt = attachment.name;
-            console.log("Attachment image created:", img);
-            output.appendChild(img);
-        } else {
-            const link = document.createElement("a");
-            link.href = base64Data;
-            link.download = attachment.name;
-            link.textContent = `Download ${attachment.name}`;
-            link.style.display = "inline-block";
-            link.style.marginTop = "10px";
-            console.log("Attachment link created:", link);
+function openMailClient(targetEmail, subject, body) {
+    const mailtoLink =
+        "mailto:" +
+        encodeURIComponent(targetEmail) +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
 
-            output.appendChild(link);
-        }
-    };
-
-    reader.readAsDataURL(attachment);
-
-    emailBody += "\n\n" + output;
-
-    var mailtoLink = 'mailto:' + targetEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(emailBody);
+    console.log("Generated mailto link:", mailtoLink);
     window.location.href = mailtoLink;
 }

@@ -19,8 +19,10 @@ async function proofOfWork() {
 
 function doProofOfWork(elIdFormElement, elIdSubmitButton) {
     const submitButton = document.getElementById(elIdSubmitButton);
+    console.log("Starting Proof of Work...");
     submitButton.disabled = true;
     proofOfWork().then((hash) => {
+        console.log("got proof of work hash");
         console.log("Proof of Work completed with hash:", hash);
         const formElement = document.getElementById(elIdFormElement);
         if (formElement && submitButton) {

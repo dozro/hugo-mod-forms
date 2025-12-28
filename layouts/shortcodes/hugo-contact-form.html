@@ -18,6 +18,6 @@
         <label for="hugo-contact-form-privacy-policy-checkbox">{{ T "HugoForm_Contact_PrivacyPolicy_Accept" }} <a href="{{ $privacyPolicyURL }}" target="_blank" rel="noopener">{{ T "HugoForm_Contact_PrivacyPolicy_LinkText" }}</a></label>
     </div>
     {{ end }}
-    <button type="submit">{{ T "HugoForm_Contact_Submit" }}</button>
+    <button id="{{ $formID }}-submit" type="submit">{{ T "HugoForm_Contact_Submit" }}</button>
     </form>
 </div>

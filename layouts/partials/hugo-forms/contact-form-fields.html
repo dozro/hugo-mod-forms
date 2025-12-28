@@ -4,27 +4,61 @@
         <legend>{{ T "HugoForm_Contact_PersonalInfo" }}</legend>
         <div class="form-row">
             <label for="firstName" id="hugo-contact-form-firstName-label">{{ T "HugoForm_Contact_FistName" }}:</label>
-            <input type="text" id="hugo-contact-form-firstName" name="firstName" required autocomplete="given-name"/>
+            <input 
+                type="text" 
+                id="hugo-contact-form-firstName" 
+                name="firstName" 
+                required 
+                placeholder="Alice"
+                autocomplete="given-name"/>
         </div>
         <div class="form-row">
             <label for="lastName" id="hugo-contact-form-lastName-label">{{ T "HugoForm_Contact_LastName" }}:</label>
-            <input type="text" id="hugo-contact-form-lastName" name="lastName" autocomplete="family-name"/>
+            <input 
+                type="text" 
+                id="hugo-contact-form-lastName" 
+                name="lastName" 
+                placeholder="Morrison"
+                autocomplete="family-name"/>
         </div>
 
         <div class="form-row">
             <label for="email" id="hugo-contact-form-email-label">{{ T "HugoForm_Contact_Email" }}:</label>
-            <input type="email" id="hugo-contact-form-email" name="email" required />
+            <input 
+                type="email" 
+                id="hugo-contact-form-email" 
+                name="email" 
+                required 
+                placeholder="alice.morrison@example.org"
+                autocomplete="email"/>
         </div>
     </fieldset>
     <fieldset id="hugo-contact-form-message-info">
         <legend>{{ T "HugoForm_Contact_Message" }}</legend>
         <div class="form-row">
             <label for="subject" id="hugo-contact-form-subject-label">{{ T "HugoForm_Contact_Subject" }}:</label>
-            <input type="text" id="hugo-contact-form-subject" name="subject" required />
+            <input 
+                type="text" 
+                id="hugo-contact-form-subject" 
+                name="subject" 
+                required />
         </div>
-        <label for="message" id="hugo-contact-form-message-label">{{ T "HugoForm_Contact_Message" }}:</label>
-        <textarea id="hugo-contact-form-message" name="message" rows="5" required></textarea>
+        <div class="textarea-row">
+            <label for="message" id="hugo-contact-form-message-label">{{ T "HugoForm_Contact_Message" }}:</label>
+            <textarea 
+                id="hugo-contact-form-message" 
+                name="message" 
+                rows="5" 
+                required>
+            </textarea>
+        </div>
+        <div class="form-row">
+            <label for="attachment" id="hugo-contact-form-attachment-label">{{ T "HugoForm_Contact_Attachment" }}:</label>
+            <input 
+                type="file" 
+                id="hugo-contact-form-attachment" 
+                name="attachment" 
+                accept=".jpg,.jpeg,.png,.pdf,.docx"/>
+        </div>
     </fieldset>
-
-    <button type="submit">{{ T "HugoForm_Contact_Submit" }}</button>
 </div>

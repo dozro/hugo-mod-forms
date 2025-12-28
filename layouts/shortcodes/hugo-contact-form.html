@@ -5,11 +5,19 @@
 {{ $formClass := .Get "class" | default "" }}
 {{ $formAction := .Get "action" | default "" }}
 {{ $formMethod := .Get "method" | default "POST" }}
+{{ $privacyPolicyURL := .Get "privacyPolicyURL" | default "" }}
 
 {{ partial "hugo-forms/style-include.html" . }}
 
 <div class="hugo-contact-form-wrapper hugo-form-wrapper hugo-form"> 
     <form id="{{ $formID }}" class="{{ $formClass }} hugo-contact-form" action="{{ $formAction }}" method="{{ $formMethod }}">
     {{ partial "hugo-forms/contact-form-fields.html" . }}
+    {{if ne $privacyPolicyURL "" }}
+    <div class="form-row hugo-contact-form-privacy-policy">
+        <input type="checkbox" id="hugo-contact-form-privacy-policy-checkbox" name="privacyPolicy" required />
+        <label for="hugo-contact-form-privacy-policy-checkbox">{{ T "HugoForm_Contact_PrivacyPolicy_Accept" }} <a href="{{ $privacyPolicyURL }}" target="_blank" rel="noopener">{{ T "HugoForm_Contact_PrivacyPolicy_LinkText" }}</a></label>
+    </div>
+    {{ end }}
+    <button type="submit">{{ T "HugoForm_Contact_Submit" }}</button>
     </form>
 </div>

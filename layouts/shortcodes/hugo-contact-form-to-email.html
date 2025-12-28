@@ -4,6 +4,7 @@
 {{ $formID := .Get "id" | default (printf "hugo-contact-form-%d" (now.UnixNano)) }}
 {{ $formClass := .Get "class" | default "" }}
 {{ $targetAddress := .Get "targetAddress" | default "" }}
+{{ $privacyPolicyURL := .Get "privacyPolicyURL" | default "" }}
 
 {{ partial "hugo-forms/style-include.html" . }}
 {{ partial "hugo-forms/contact-form-to-email-script-include.html" . }}
@@ -11,6 +12,13 @@
 <div class="hugo-contact-form-wrapper hugo-form-wrapper hugo-form"> 
     <form id="{{ $formID }}" class="{{ $formClass }} hugo-contact-form">
     {{ partial "hugo-forms/contact-form-fields.html" . }}
+    <button type="submit">{{ T "HugoForm_Contact_Submit" }}</button>
+    {{if ne $privacyPolicyURL "" }}
+    <div class="form-row hugo-contact-form-privacy-policy">
+        <input type="checkbox" id="hugo-contact-form-privacy-policy-checkbox" name="privacyPolicy" required />
+        <label for="hugo-contact-form-privacy-policy-checkbox">{{ T "HugoForm_Contact_PrivacyPolicy_Accept" }} <a href="{{ $privacyPolicyURL }}" target="_blank" rel="noopener">{{ T "HugoForm_Contact_PrivacyPolicy_LinkText" }}</a></label>
+    </div>
+    {{ end }}
     </form>
     <script>
         initializeContactForm("{{ $formID }}", "{{ $targetAddress }}", false);

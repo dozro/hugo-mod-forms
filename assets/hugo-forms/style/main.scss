@@ -186,8 +186,22 @@
         }
     }
 
+    .textarea-row {
+        @extend .form-row;
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        textarea {
+            width: 100%;
+        }
+    }
+
     .form-row {
         margin-bottom: 1.5rem;
+        display: block;
     }
 
     .form-grid {

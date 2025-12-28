@@ -16,11 +16,17 @@ function initializeContactForm(formId, targetEmail, emailIsObfuscated) {
 function sendFormData(targetEmail) {
     var formData = new FormData(formElement);
     var emailBody = '';
+    const subject = formData.get('subject') || 'Contact Form Submission';
+    const attachment = formData.get('attachment');
 
     formData.forEach(function(value, key) {
-        emailBody += key + ': ' + value + '\n';
+        emailBody += "<strong>" + key + "</strong>: " + value + "\n";
     });
 
-    var mailtoLink = 'mailto:' + targetEmail + '?subject=Contact Form Submission&body=' + encodeURIComponent(emailBody);
+    if (attachment && attachment.size > 0) {
+        emailBody += "Attachment included: " + attachment.name + "\n\n";
+    }
+
+    var mailtoLink = 'mailto:' + targetEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(emailBody);
     window.location.href = mailtoLink;
 }

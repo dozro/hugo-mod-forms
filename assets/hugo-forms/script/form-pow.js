@@ -26,7 +26,7 @@ function doProofOfWork(elIdFormElement, elIdSubmitButton) {
         console.log("Proof of Work completed with hash:", hash);
         const formElement = document.getElementById(elIdFormElement);
         if (formElement && submitButton) {
-            formElement.setValue(hash);
+            formElement.setAttribute("value", hash);
             submitButton.disabled = false;
         }
     });

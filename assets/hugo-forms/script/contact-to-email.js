@@ -53,7 +53,7 @@ function sendFormData(targetEmail) {
 
     reader.readAsDataURL(attachment);
 
-    emailBody += "\n\n" + output.innerHTML;
+    emailBody += "\n\n" + output;
 
     var mailtoLink = 'mailto:' + targetEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(emailBody);
     window.location.href = mailtoLink;

@@ -213,4 +213,16 @@
             grid-template-columns: 1fr;
         }
     }
+    [required]::before {
+        content: "* ";
+        color: $error;
+
+        @media(prefers-color-scheme: light) {
+            color: $error;
+        }
+
+        @media(prefers-color-scheme: dark) {
+            color: $error-dark-mode;
+        }
+    }
 }

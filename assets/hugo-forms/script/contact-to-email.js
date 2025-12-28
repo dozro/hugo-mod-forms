@@ -36,6 +36,7 @@ function sendFormData(targetEmail) {
             img.src = base64Data;
             img.style.maxWidth = "300px";
             img.alt = attachment.name;
+            console.log("Attachment image created:", img);
             output.appendChild(img);
         } else {
             const link = document.createElement("a");
@@ -44,6 +45,7 @@ function sendFormData(targetEmail) {
             link.textContent = `Download ${attachment.name}`;
             link.style.display = "inline-block";
             link.style.marginTop = "10px";
+            console.log("Attachment link created:", link);
 
             output.appendChild(link);
         }

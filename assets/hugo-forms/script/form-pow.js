@@ -3,7 +3,7 @@
 
 async function proofOfWork() {
     const encoder = new TextEncoder();
-    var complexity = 4; // Number of leading zeros required
+    var complexity = 3; // Number of leading zeros required
     let nonce = 0;
     while (true) {
         const data = encoder.encode('rye-hugo-forms-proof-of-work-' + nonce);

@@ -1,5 +1,5 @@
 {{ partial "hugo-forms/script-include.html" . }}
-<input type="hidden" id="hugo-form-proof-of-work" name="hugoFormProofOfWork" required />
+<input type="hidden" id="hugo-form-proof-of-work" name="hugoFormProofOfWork" required value="" pattern="^[a-fA-F0-9]{64}$" />
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const formElement = document.getElementById("hugo-form-proof-of-work");
